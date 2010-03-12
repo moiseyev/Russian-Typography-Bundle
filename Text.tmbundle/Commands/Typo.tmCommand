@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+
+require 'net/http'
+require 'cgi'
+
+STDOUT.sync = true
+page_text = STDIN.read
+
+post_args = &lt;&lt;SOAPBODY
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Body&gt;
+      &lt;ProcessText xmlns="http://typograf.artlebedev.ru/webservices/"&gt;
+          &lt;text&gt;#{CGI.escapeHTML(page_text)}&lt;/text&gt;
+          &lt;entityType&gt;4&lt;/entityType&gt;
+          &lt;useBr&gt;0&lt;/useBr&gt;
+          &lt;useP&gt;1&lt;/useP&gt;
+          &lt;maxNobr&gt;3&lt;/maxNobr&gt;
+      &lt;/ProcessText&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+SOAPBODY
+
+Net::HTTP.start('typograf.artlebedev.ru') do |query|
+  response = query.post('/webservices/typograf.asmx', post_args, {'Content-Type' =&gt; 'application/x-www-form-urlencoded'})
+  response.body.scan(%r{&lt;ProcessTextResult&gt;(.*?)&lt;/ProcessTextResult&gt;}m) do |result|
+    puts result
+    #puts CGI.unescapeHTML(result.to_s)
+  end
+end</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>^T</string>
+	<key>name</key>
+	<string>Typo</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>text</string>
+	<key>uuid</key>
+	<string>E0575353-A3EA-4228-8048-E70986A7D8C8</string>
+</dict>
+</plist>
