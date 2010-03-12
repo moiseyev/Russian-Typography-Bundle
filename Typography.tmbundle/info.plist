@@ -2,13 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>changed</key>
-	<dict/>
-	<key>deleted</key>
-	<array/>
-	<key>isDelta</key>
-	<true/>
+	<key>name</key>
+	<string>Typography</string>
 	<key>uuid</key>
-	<string>B7BC3FFD-6E4B-11D9-91AF-000D93589AF6</string>
+	<string>50C2D564-8B4C-47F8-A6B0-9F20DA44A4F0</string>
 </dict>
 </plist>

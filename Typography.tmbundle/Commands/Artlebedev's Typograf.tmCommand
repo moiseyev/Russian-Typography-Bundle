@@ -40,12 +40,12 @@ end</string>
 	<key>keyEquivalent</key>
 	<string>^T</string>
 	<key>name</key>
-	<string>Typo</string>
+	<string>Artlebedev's Typograf</string>
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
 	<string>text</string>
 	<key>uuid</key>
-	<string>E0575353-A3EA-4228-8048-E70986A7D8C8</string>
+	<string>62F3D6F3-E7D7-42CD-AE02-7D14ADB95586</string>
 </dict>
 </plist>
