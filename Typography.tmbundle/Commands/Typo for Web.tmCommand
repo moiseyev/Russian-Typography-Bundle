@@ -7,7 +7,7 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -wKU
 
-require 'russian_typography.rb'
+require "#{ENV['TM_BUNDLE_SUPPORT']}/russian_typography.rb"
 
 puts typograf(:entity_type =&gt; 1, :use_p =&gt; 1)
 </string>

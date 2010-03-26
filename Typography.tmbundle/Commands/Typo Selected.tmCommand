@@ -7,7 +7,7 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -wKU
 
-require 'russian_typography.rb'
+require "#{ENV['TM_BUNDLE_SUPPORT']}/russian_typography.rb"
 
 # Приходится вырезать тег br, т.к. не могу использовать useBr=0, она удаляет лишние переводы строк
 print typograf(:use_br =&gt; 1).gsub(/&amp;lt;br \/&amp;gt;/, '').chomp</string>
