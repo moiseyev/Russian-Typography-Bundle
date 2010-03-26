@@ -10,7 +10,7 @@
 require "#{ENV['TM_BUNDLE_SUPPORT']}/russian_typography.rb"
 
 # Приходится вырезать тег br, т.к. не могу использовать useBr=0, она удаляет лишние переводы строк
-print typograf(:use_br =&gt; 1).gsub(/&amp;lt;br \/&amp;gt;/, '').chomp</string>
+print CGI.unescapeHTML(typograf(:use_br =&gt; 1).gsub(/&amp;lt;br \/&amp;gt;/, '').chomp)</string>
 	<key>fallbackInput</key>
 	<string>line</string>
 	<key>input</key>
